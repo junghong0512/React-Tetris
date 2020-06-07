@@ -9,11 +9,13 @@ export const StyledStartButton = styled.div`
   border-radius: 20px;
   border: none;
   color: white;
-  background: #333;
+  background: #344;
   font-family: Dekar-Regular, Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   outline: none;
   cursor: pointer;
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 2px;
+  color: tan;
 `;

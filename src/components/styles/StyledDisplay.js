@@ -15,4 +15,5 @@ export const StyledDisplay = styled.div`
   font-family: Dekar-Regular, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   text-transform: uppercase;
+  letter-spacing: 2px;
 `;
