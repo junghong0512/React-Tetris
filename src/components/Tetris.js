@@ -66,7 +66,7 @@ const Tetris = () => {
         // Down key pressed
         dropPlayer();
       } else if (keyCode === 38) {
-        playerRotate(stage, 1);
+        playerRotate(stage, -1); // if you want to ratate another direction, change -1 to 1
       }
     }
   };
