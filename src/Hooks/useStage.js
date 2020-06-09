@@ -7,15 +7,11 @@ export const useStage = (player, resetPlayer) => {
   useEffect(() => {
     const updateStage = (prevStage) => {
       // First flush the stage
-      // const newStage = prevStage.map((row) => {
-      //   return row.map((cell) => {
-      //     return cell[1] === "clear" ? [0, "clear"] : cell;
-      //   });
-      // });
-
-      const newStage = prevStage.map((row) =>
-        row.map((cell) => (cell[1] === "clear" ? [0, "clear"] : cell))
-      );
+      const newStage = prevStage.map((row) => {
+        return row.map((cell) => {
+          return cell[1] === "clear" ? [0, "clear"] : cell;
+        });
+      });
 
       // Then draw the tetromino
       player.tetromino.forEach((row, y) => {
