@@ -3,8 +3,25 @@ import { createStage } from "../gameHelpers";
 
 export const useStage = (player, resetPlayer) => {
   const [stage, setStage] = useState(createStage());
+  const [rowsCleared, setRowsCleared] = useState(0);
 
   useEffect(() => {
+    setRowsCleared(0);
+
+    const sweepRows = (newStage) => {
+      return newStage.reduce((acc, row) => {
+        // if all the cells are not empty
+        if (row.findIndex((cell) => cell[0] === 0) === -1) {
+          setRowsCleared((prev) => prev + 1);
+          // New Array is generated
+          acc.unshift(new Array(newStage[0].length).fill([0, "clear"]));
+          return acc;
+        }
+        acc.push(row);
+        return acc;
+      }, []);
+    };
+
     const updateStage = (prevStage) => {
       // First flush the stage
       const newStage = prevStage.map((row) => {
@@ -27,7 +44,8 @@ export const useStage = (player, resetPlayer) => {
 
       // Then check if we collided
       if (player.collided) {
-        resetPlayer();
+        resetPlayer(); // new tetromino
+        return sweepRows(newStage); // sweep the full rows
       }
 
       return newStage;
@@ -36,5 +54,5 @@ export const useStage = (player, resetPlayer) => {
     setStage((prev) => updateStage(prev));
   }, [player, resetPlayer]);
 
-  return [stage, setStage];
+  return [stage, setStage, rowsCleared];
 };
