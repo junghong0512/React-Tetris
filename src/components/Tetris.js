@@ -6,10 +6,10 @@ import { createStage, checkCollision } from "../gameHelpers";
 import { StyledTetris, StyledTetrisWrapper } from "./styles/StyledTetris";
 
 // Custom Hooks
-import { useInterval } from "../hooks/useInterval";
-import { usePlayer } from "../hooks/usePlayer";
-import { useStage } from "../hooks/useStage";
-import { useGameStatus } from "../hooks/useGameStatus";
+import { useInterval } from "../hooks/useInterval.js";
+import { usePlayer } from "../hooks/usePlayer.js";
+import { useStage } from "../hooks/useStage.js";
+import { useGameStatus } from "../hooks/useGameStatus.js";
 
 // Components
 import Stage from "./Stage";
